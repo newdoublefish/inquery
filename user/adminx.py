@@ -2,8 +2,24 @@ import xadmin
 from xadmin import views
 from xadmin.plugins.batch import BatchChangeAction
 from .models import Department, UserProfile
-
 # https://www.cnblogs.com/lyq-biu/p/9513888.html
+
+
+@xadmin.sites.register(views.BaseAdminView)
+class BaseSetting(object):
+    enable_themes = True
+    use_bootswatch = True
+
+
+class MainDashboard(object):
+    widgets = [
+        [
+            {"type": "list", "model": "purchase.Purchase", },
+        ],
+    ]
+
+
+xadmin.site.register(views.website.IndexView, MainDashboard)
 
 
 class GlobalSetting(object):

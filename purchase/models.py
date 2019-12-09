@@ -4,7 +4,7 @@ import datetime
 
 def upload_to(instance, fileName):
     # print('/'.join(["record", instance.order.sn_text, fileName]))
-    return '/'.join(["purchase", instance.material_code, fileName])
+    return '/'.join(["files", instance.material_code, fileName])
 
 
 # Create your models here.
